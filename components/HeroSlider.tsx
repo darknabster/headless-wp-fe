@@ -33,6 +33,7 @@
 // }
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export type Slide = {
   id: number;
@@ -67,10 +68,11 @@ export default function HeroSlider({ slides }: Props) {
           }`}
         >
           {slide.imageUrl && (
-            <img
+            <Image
               src={slide.imageUrl}
               alt={slide.title}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           )}
           <div className="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white p-4 rounded-xl max-w-[80%]">

@@ -1,4 +1,6 @@
 // components/Subfooter.tsx
+import Link from 'next/link';
+
 export default function Subfooter() {
   return (
     <div className="bg-gray-900 text-gray-400 py-8">
@@ -11,13 +13,11 @@ export default function Subfooter() {
         </div>
 
         <div>
-          <h3 className="text-white font-semibold mb-3">Quick Links</h3>
-          <ul className="space-y-2 text-sm">
-            <li><a href="/" className="hover:text-white">Home</a></li>
-            <li><a href="/about" className="hover:text-white">About</a></li>
-            <li><a href="/services" className="hover:text-white">Services</a></li>
-            <li><a href="/contact" className="hover:text-white">Contact</a></li>
-          </ul>
+          <h3 className="text-white font-semibold mb-3 space-y-2 text-sm">Quick Links</h3>
+            <Link href="/" className="hover:text-white">Home</Link>
+            <Link href="/about" className="hover:text-white">About</Link>
+            <Link href="/services" className="hover:text-white">Services</Link>
+            <Link href="/contact" className="hover:text-white">Contact</Link>
         </div>
 
         <div>
@@ -31,13 +31,11 @@ export default function Subfooter() {
         </div>
 
         <div>
-          <h3 className="text-white font-semibold mb-3">Follow Us</h3>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-white">Facebook</a></li>
-            <li><a href="#" className="hover:text-white">Twitter</a></li>
-            <li><a href="#" className="hover:text-white">Instagram</a></li>
-            <li><a href="#" className="hover:text-white">LinkedIn</a></li>
-          </ul>
+          <h3 className="text-white font-semibold mb-3 space-y-2 text-sm">Follow Us</h3>
+            <Link href="#" className="hover:text-white">Facebook</Link>
+            <Link href="#" className="hover:text-white">Twitter</Link>
+            <Link href="#" className="hover:text-white">Instagram</Link>
+            <Link href="#" className="hover:text-white">LinkedIn</Link>
         </div>
       </div>
     </div>

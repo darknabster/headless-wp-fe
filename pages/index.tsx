@@ -4,11 +4,16 @@ import parse from 'html-react-parser';
 import HeroMixed from '@/components/HeroMixed';
 import { fetchBanners, Slide } from '@/lib/api';
 
-type Props = {
-  posts: any[];
-  slides: Slide[];
+type Post = {
+  id: number;
+  title: { rendered: string };
+  excerpt: { rendered: string };
 };
 
+type Props = {
+  posts: Post[];
+  slides: Slide[];
+};
 // export default function Home({ posts, slides }: Props) {
 //   return (
 //     <main className="max-w-4xl mx-auto py-10">
@@ -62,8 +67,8 @@ export default function Home({ posts, slides }: Props) {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const res = await fetch('http://localhost/headlesswp/wp-json/wp/v2/posts');
-    const posts = await res.json();
+    const postsRes = await fetch('http://localhost/headlesswp/wp-json/wp/v2/posts');
+    const posts: Post[] = await postsRes.json();
     const slides = await fetchBanners();
 
     return {
