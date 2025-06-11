@@ -27,7 +27,7 @@ export default function Blog({ posts }: { posts: Post[] }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch('http://localhost/headlesswp/wp-json/wp/v2/posts');
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
   const data = await res.json();
 
   return {

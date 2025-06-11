@@ -1,8 +1,12 @@
 // pages/index.tsx
 import { GetStaticProps } from 'next';
 import parse from 'html-react-parser';
-import HeroMixed from '@/components/HeroMixed';
 import { fetchBanners, Slide } from '@/lib/api';
+import HeroMixed from '@/components/HeroMixed';
+import Services from '@/components/Services';
+import WhyChooseMe from '@/components/WhyChooseMe';
+import FeaturedProjects from '@/components/FeaturedProjects';
+import Testimonials from '@/components/Testimonials';
 
 type Post = {
   id: number;
@@ -42,8 +46,8 @@ export default function Home({ posts, slides }: Props) {
       <HeroMixed slides={slides} />
 
       {/* Centered Content */}
-      <main className="max-w-4xl mx-auto py-10">
-        <div className='mt-20 mb-20'>
+      <main className="w-full mx-auto py-10">
+        <div className='max-w-6xl mx-auto px-4 py-16 mt-20 mb-20'>
           <h1 className="text-3xl font-bold mb-6">Latest Posts</h1>
 
           {posts && posts.length > 0 ? (
@@ -61,6 +65,11 @@ export default function Home({ posts, slides }: Props) {
             <p>No posts found.</p>
           )}
         </div>
+
+        <Services />
+        <WhyChooseMe />
+        <FeaturedProjects />
+        <Testimonials />
       </main>
     </>
   );
@@ -69,7 +78,7 @@ export default function Home({ posts, slides }: Props) {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const postsRes = await fetch('http://localhost/headlesswp/wp-json/wp/v2/posts');
+    const postsRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
     const posts: Post[] = await postsRes.json();
     const slides = await fetchBanners();
 

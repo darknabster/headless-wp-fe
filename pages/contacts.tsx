@@ -12,7 +12,7 @@ export default function Contact ({ content }: { content: string }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch('http://localhost/headlesswp/wp-json/wp/v2/pages?slug=contact');
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/pages?slug=contact`);
   const data = await res.json();
   const page = data[0];
 
