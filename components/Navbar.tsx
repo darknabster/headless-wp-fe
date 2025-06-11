@@ -25,17 +25,17 @@ export default function Navbar({ logoUrl }: NavbarProps) {
         {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-8 items-center text-white">
           <Link href="/" className="hover:text-blue-500">Home</Link>
-          <Link href="/about" className="hover:text-blue-500">About</Link>
-
+          <Link href="/about" className="hover:text-blue-500">About Us</Link>
           <div className="relative group">
-            <span className="cursor-pointer hover:text-blue-500">Services</span>
+            <span className="cursor-pointer hover:text-blue-500 p-3">Services</span>
             <div className="absolute left-0 top-full mt-2 hidden group-hover:flex flex-col bg-white shadow-md rounded-md p-2 z-50">
               <Link href="/design" className="block px-4 py-2 hover:bg-gray-100">Design</Link>
               <Link href="/seo" className="block px-4 py-2 hover:bg-gray-100">SEO</Link>
             </div>
           </div>
-
-          <Link href="/contact" className="hover:text-blue-500">Contact</Link>
+          <Link href="/portfolio" className="hover:text-blue-500">Portfolio</Link>
+          <Link href="/blog" className="hover:text-blue-500">Blog</Link>
+          <Link href="/contacts" className="hover:text-blue-500">Contact</Link>
         </nav>
 
         {/* Mobile Toggle */}

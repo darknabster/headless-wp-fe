@@ -43,22 +43,24 @@ export default function Home({ posts, slides }: Props) {
 
       {/* Centered Content */}
       <main className="max-w-4xl mx-auto py-10">
-        <h1 className="text-3xl font-bold mb-6">Latest Posts</h1>
+        <div className='mt-20 mb-20'>
+          <h1 className="text-3xl font-bold mb-6">Latest Posts</h1>
 
-        {posts && posts.length > 0 ? (
-          posts.map((post) => (
-            <div key={post.id} className="mb-8 border-b pb-4">
-              <h2 className="text-xl text-blue-600">
-                {parse(post.title.rendered)}
-              </h2>
-              <div className="text-gray-700">
-                {parse(post.excerpt.rendered)}
+          {posts && posts.length > 0 ? (
+            posts.map((post) => (
+              <div key={post.id} className="mb-8 border-b pb-4">
+                <h2 className="text-xl text-blue-600">
+                  {parse(post.title.rendered)}
+                </h2>
+                <div className="text-gray-700">
+                  {parse(post.excerpt.rendered)}
+                </div>
               </div>
-            </div>
-          ))
-        ) : (
-          <p>No posts found.</p>
-        )}
+            ))
+          ) : (
+            <p>No posts found.</p>
+          )}
+        </div>
       </main>
     </>
   );
